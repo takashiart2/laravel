@@ -36,8 +36,8 @@
                 <th width="20%">氏名</th>
                 <th width="20%">性別</th>
                 <th width="20%">趣味</th>
-                <th width="50%">紹介文</th>
-                <th width="10%">操作</th>
+                <th width="40%">紹介文</th>
+                <th width="20%">操作</th>
               </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@
                   <th>{{ $profile->id }}</th>
                   <td>{{ str_limit($profile->name, 100) }}</td>
                   <td>{{ str_limit($profile->gender, 100) }}</td>
-                  <td>{{ str_limit($profile->hoby, 100) }}</td>
+                  <td>{{ str_limit($profile->hobby, 100) }}</td>
                   <td>{{ str_limit($profile->introduction, 250) }}</td>
                     <td>
                     <div>

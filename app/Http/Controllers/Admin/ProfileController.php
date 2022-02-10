@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Profile;
-
+use App\History;
+use Carbon\Carbon;
 class ProfileController extends Controller
   {
     //
@@ -65,7 +66,18 @@ class ProfileController extends Controller
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
-      return redirect('admin/profile');
+      
+      $history = new History();
+      $history->news_id = $profile->id;
+      $history->edited_at = Carbon::now();
+      $history->save();
+      return redirect('admin/profile/');
+    }
+    public function delete(Request $request)
+    {
+      $profile = Profile::find($request->id);
+      $profile->delete();
+      return redirect('admin/profile/');
     }
   
   }
