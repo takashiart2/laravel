@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.front')
 @section('content')
   <div class="container">
     <hr color="#c0c0c0">
@@ -11,13 +11,13 @@
                 <div class="title p-2">
                   <h1>{{ str_limit($headline->name, 70) }}</h1>
                 </div>
-                <div class="title p-2">
-                  <h1>{{ str_limit($headline->gender, 70) }}</h1>
-                </div>
-                <div class="title p-2">
-                  <h1>{{ str_limit($headline->hobby, 70) }}</h1>
-                </div>
               </div>
+            </div>
+            <div class="col-md-6">
+              <p class="body mx-auto">{{ str_limit($headline->gender, 650) }}</p>
+            </div>
+            <div class="col-md-6">
+              <p class="body mx-auto">{{ str_limit($headline->hobby, 650) }}</p>
             </div>
             <div class="col-md-6">
               <p class="body mx-auto">{{ str_limit($headline->introduction, 650) }}</p>
@@ -36,16 +36,16 @@
                 <div class="date">
                   {{ $post->updated_at->format('Y年m月d日') }}
                 </div>
-                <div class="name">
+                <div class="title">
                    {{ str_limit($post->name, 150) }}
                 </div>
-                <div class="gender">
+                <div class="body mt-3">
                    {{ str_limit($post->gender, 150) }}
                 </div>
-                <div class="hobby">
+                <div class="body mt-3">
                    {{ str_limit($post->hobby, 150) }}
                 </div>
-                <div class="introduction mt-3">
+                <div class="body mt-3">
                   {{ str_limit($post->introduction, 1500) }}
                 </div>
               </div>
